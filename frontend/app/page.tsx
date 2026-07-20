@@ -18,8 +18,12 @@ export default function UploadPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/process-documents", {
+      // Swapped to the live localtunnel URL and added the reminder bypass header
+      const res = await fetch("https://few-hands-design.loca.lt/api/process-documents", {
         method: "POST",
+        headers: {
+          "Bypass-Tunnel-Reminder": "true",
+        },
         body: formData,
       });
       
